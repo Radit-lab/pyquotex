@@ -4,6 +4,8 @@ charset-normalizer==3.4.2
 idna==3.10
 numpy==2.3.1
 pyfiglet==1.0.3
+python-dotenv==1.0.0
+python-telegram-bot==20.7
 requests==2.32.4
 soupsieve==2.7
 typing_extensions==4.14.1

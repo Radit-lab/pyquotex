@@ -12,7 +12,8 @@ class Login(Browser):
     url = ""
     cookies = None
     ssid = None
-    base_url = 'qxbroker.com'
+    # Updated base domain to match what you see in the browser
+    base_url = 'market-qx.trade'
     https_base_url = f'https://{base_url}'
 
     def __init__(self, api, *args, **kwargs):
@@ -77,21 +78,84 @@ class Login(Browser):
             url=f"{self.full_url}/trade"
         )
         if self.response:
-            script = self.get_soup().find_all(
-                "script",
-                {"type": "text/javascript"}
-            )
-            script = script[0].get_text() if script else "{}"
-            match = re.sub(
-                "window.settings = ",
-                "",
-                script.strip().replace(";", "")
-            )
+            soup = self.get_soup()
+            settings = {}
+
+            # 1) Search all <script> tags for a block starting with window.settings =
+            script_tags = soup.find_all("script")
+            for tag in script_tags:
+                try:
+                    text = tag.get_text() or ""
+                    if "window.settings" in text:
+                        # Extract after the assignment
+                        cleaned = re.sub(
+                            r"^\s*window\.settings\s*=\s*",
+                            "",
+                            text.strip().replace(";", ""),
+                            flags=re.MULTILINE
+                        )
+                        try:
+                            candidate = json.loads(cleaned)
+                            if isinstance(candidate, dict) and candidate:
+                                settings = candidate
+                                break
+                        except json.JSONDecodeError:
+                            # Try to find a JSON object inside the script via regex
+                            pass
+                except Exception:
+                    pass
+
+            # 2) If not found, regex-scan the entire HTML for a JSON containing "token"
+            if not settings:
+                try:
+                    html_text = str(soup)
+                    # crude regex to capture a JSON object containing "token"
+                    match = re.search(r"\{[^\}]*\"token\"\s*:\s*\"([^\"]+)\"[^\}]*\}", html_text)
+                    if match:
+                        # Best effort: parse the full object if possible
+                        obj_start = html_text.rfind("{", 0, match.start())
+                        obj_end = html_text.find("}", match.end()-1)
+                        snippet = html_text[obj_start:obj_end+1] if (obj_start != -1 and obj_end != -1) else match.group(0)
+                        try:
+                            candidate = json.loads(snippet)
+                            if isinstance(candidate, dict):
+                                settings = candidate
+                            else:
+                                # fallback minimal settings with token
+                                settings = {"token": match.group(1)}
+                        except Exception:
+                            settings = {"token": match.group(1)}
+                except Exception:
+                    pass
+
+            # Collect cookies
             self.cookies = self.get_cookies()
-            self.ssid = json.loads(match).get("token")
+
+            # 3) Fallback: try to obtain token from cookies if still missing
+            token = settings.get("token") if isinstance(settings, dict) else None
+            if not token and self.cookies:
+                try:
+                    # parse cookie string into dict-like pairs
+                    cookie_pairs = [c.strip() for c in self.cookies.split(';') if '=' in c]
+                    cookie_map = {}
+                    for pair in cookie_pairs:
+                        k, v = pair.split('=', 1)
+                        cookie_map[k.strip().lower()] = v.strip()
+                    for key in [
+                        'ssid', 'session', 'token', 'authorization', 'auth', 'jwt', 'access_token']:
+                        if key in cookie_map and cookie_map[key]:
+                            token = cookie_map[key]
+                            break
+                except Exception:
+                    pass
+
+            self.ssid = token
+
+            # Update session_data and persist
             self.api.session_data["cookies"] = self.cookies
             self.api.session_data["token"] = self.ssid
             self.api.session_data["user_agent"] = self.headers["User-Agent"]
+
             output_file = Path(f"{self.api.resource_path}/session.json")
             output_file.parent.mkdir(exist_ok=True, parents=True)
             output_file.write_text(
@@ -101,7 +165,7 @@ class Login(Browser):
                     "user_agent": self.headers["User-Agent"]
                 }, indent=4)
             )
-            return self.response, json.loads(match)
+            return self.response, (settings if isinstance(settings, dict) else {})
 
         return None, None
 

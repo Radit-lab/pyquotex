@@ -294,7 +294,7 @@ class PyQuotexCLI:
 
     @ensure_connection()
     async def get_candles(self, asset: str = "CHFJPY_otc", period: int = 60,
-                          offset: int = 3600) -> None:
+                          offset: int = 3600, print_count: int = 5) -> None:
         """Gets historical candle data (candlesticks)."""
         logger.info(f"Getting candles for {asset} with period of {period}s.")
 
@@ -324,12 +324,23 @@ class PyQuotexCLI:
         else:
             print("   Candle colors not available.")
 
-        print("\n   Last 5 candles:")
-        for i, candle in enumerate(candles[-5:]):
-            color = candles_color[-(5 - i)] if candles_color and (5 - i) <= len(candles_color) else "N/A"
+        to_print = max(1, min(print_count, len(candles)))
+        print(f"\n   Last {to_print} candles:")
+        for i, candle in enumerate(candles[-to_print:]):
+            color = candles_color[-(to_print - i)] if candles_color and (to_print - i) <= len(candles_color) else "N/A"
             emoji = "🟢" if color == "green" else ("🔴" if color == "red" else "⚪")
             print(
                 f"{emoji} Open: {candle.get('open', 'N/A'):.4f} → Close: {candle.get('close', 'N/A'):.4f} (Time: {time.strftime('%H:%M:%S', time.localtime(candle.get('time', 0)))})")
+
+    @ensure_connection()
+    async def get_candles_last(self, asset: str = "EURUSD_otc", count: int = 50, period: int = 60, print_count: int = 5) -> None:
+        """Fetch the last N candles by computing offset = count * period and delegating to get_candles."""
+        if count <= 0:
+            print("❌ Count must be greater than zero.")
+            return
+        offset = count * period
+        logger.info(f"Fetching last {count} candles for {asset} at period {period}s (offset={offset}).")
+        await self.get_candles(asset=asset, period=period, offset=offset, print_count=print_count)
 
     @ensure_connection()
     async def get_assets_status(self) -> None:
@@ -538,6 +549,13 @@ Usage examples:
     candles_parser.add_argument("--period", type=int, default=60,
                                 help="Candle period in seconds (e.g., 60 for 1 minute).")
     candles_parser.add_argument("--offset", type=int, default=3600, help="Offset in seconds to fetch candles.")
+    candles_parser.add_argument("--print-count", type=int, default=5, help="How many of the latest candles to print.")
+
+    candles_last_parser = subparsers.add_parser("get-candles-last", help="Get the last N candles (default 50 at 60s).")
+    candles_last_parser.add_argument("--asset", default="EURUSD_otc", help="Asset symbol, e.g., EURUSD_otc.")
+    candles_last_parser.add_argument("--count", type=int, default=50, help="Number of latest candles to fetch.")
+    candles_last_parser.add_argument("--period", type=int, default=60, help="Candle period in seconds.")
+    candles_last_parser.add_argument("--print-count", type=int, default=5, help="How many of the latest candles to print.")
 
     subparsers.add_parser("assets-status", help="Get status (open/closed) of all available assets.")
 
@@ -584,7 +602,9 @@ async def main():
         elif args.command == "buy-and-check":
             await cli.buy_and_check_win(args.amount, args.asset, args.direction, args.duration)
         elif args.command == "get-candles":
-            await cli.get_candles(args.asset, args.period, args.offset)
+            await cli.get_candles(args.asset, args.period, args.offset, getattr(args, "print_count", 5))
+        elif args.command == "get-candles-last":
+            await cli.get_candles_last(asset=args.asset, count=args.count, period=args.period, print_count=getattr(args, "print_count", 5))
         elif args.command == "assets-status":
             await cli.get_assets_status()
         elif args.command == "payment-info":

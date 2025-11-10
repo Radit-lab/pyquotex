@@ -1,0 +1,198 @@
+2025-11-09 08:47:25,130 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 08:47:27,203 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 08:47:46,798 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 08:47:49,824 - __main__ - INFO - Establishing connection...
+2025-11-09 08:47:49,825 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 08:47:53,839 - __main__ - CRITICAL - Unexpected error occurred during command execution: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\User\pyquotex\app.py", line 595, in main
+    await cli.get_realtime_price(args.asset)
+  File "C:\Users\User\pyquotex\app.py", line 88, in wrapper
+    check, reason = await self._connect_with_retry(max_attempts)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\pyquotex\app.py", line 131, in _connect_with_retry
+    check, reason = await self.client.connect()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\pyquotex\pyquotex\stable_api.py", line 234, in connect
+    await self.api.authenticate()
+  File "C:\Users\User\pyquotex\pyquotex\api.py", line 439, in authenticate
+    status, msg = await login(
+                  ^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\User\pyquotex\pyquotex\http\login.py", line 171, in __call__
+    self.get_profile()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\User\pyquotex\pyquotex\http\login.py", line 91, in get_profile
+    self.ssid = json.loads(match).get("token")
+                ~~~~~~~~~~^^^^^^^
+  File "C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\json\decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-11-09 08:51:15,353 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 08:51:18,366 - __main__ - INFO - Establishing connection...
+2025-11-09 08:51:18,368 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 08:51:26,720 - websocket - INFO - Websocket connected
+2025-11-09 08:51:26,769 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 08:51:36,060 - pyquotex.api - INFO - Closing websocket connection...
+2025-11-09 08:51:40,152 - websocket - INFO - Websocket connected
+2025-11-09 08:51:40,218 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 08:51:41,467 - __main__ - INFO - CLI operation interrupted by user.
+2025-11-09 08:57:33,666 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 08:57:36,675 - __main__ - INFO - Establishing connection...
+2025-11-09 08:57:36,676 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 08:57:46,556 - websocket - INFO - Websocket connected
+2025-11-09 08:57:46,611 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 08:57:56,348 - pyquotex.api - INFO - Closing websocket connection...
+2025-11-09 08:58:00,876 - websocket - INFO - Websocket connected
+2025-11-09 08:58:00,944 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 08:58:34,594 - websocket - DEBUG - Sending ping
+2025-11-09 08:58:48,937 - websocket - DEBUG - Sending ping
+2025-11-09 08:58:49,770 - __main__ - INFO - CLI operation interrupted by user.
+2025-11-09 09:01:45,298 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:01:48,333 - __main__ - INFO - Establishing connection...
+2025-11-09 09:01:48,338 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 09:01:53,622 - websocket - INFO - Websocket connected
+2025-11-09 09:01:53,685 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:01:56,722 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 09:01:56,725 - __main__ - INFO - Getting real-time price for EURJPY_otc.
+2025-11-09 09:01:56,726 - __main__ - INFO - Asset EURJPY_otc is open. Starting real-time price monitoring.
+2025-11-09 09:02:41,692 - websocket - DEBUG - Sending ping
+2025-11-09 09:03:05,697 - websocket - DEBUG - Sending ping
+2025-11-09 09:03:42,249 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:03:45,262 - __main__ - INFO - Establishing connection...
+2025-11-09 09:03:45,262 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 09:03:47,168 - websocket - INFO - Websocket connected
+2025-11-09 09:03:47,240 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:03:50,276 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 09:03:50,277 - __main__ - INFO - Getting account balance.
+2025-11-09 09:03:50,279 - __main__ - INFO - Current balance: 449.6
+2025-11-09 09:03:52,531 - pyquotex.ws.client - INFO - Websocket connection closed.
+2025-11-09 09:12:34,633 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:13:04,494 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:13:07,512 - __main__ - INFO - Establishing connection...
+2025-11-09 09:13:07,514 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 09:13:09,111 - websocket - INFO - Websocket connected
+2025-11-09 09:13:09,158 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:13:12,196 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 09:13:12,199 - __main__ - INFO - Executing simple buy: 100.0 on EURUSD_otc in call direction for 60s.
+2025-11-09 09:13:12,200 - __main__ - INFO - Asset EURUSD_otc is open.
+2025-11-09 09:13:13,714 - __main__ - INFO - Buy successful: {'id': '4b50474b-5998-45fd-8498-9e374cf00dd9', 'openTime': '2025-11-09 03:13:13', 'closeTime': '2025-11-09 03:14:13', 'openTimestamp': 1762657993, 'closeTimestamp': 1762658053, 'uid': 68562388, 'isDemo': 1, 'tournamentId': 0, 'amount': 100, 'purchaseTime': 1762658023, 'profit': 85, 'percentProfit': 85, 'percentLoss': 100, 'openPrice': 1.15576, 'copyTicket': '', 'closePrice': 0, 'command': 0, 'asset': 'EURUSD_otc', 'nickname': '#68562388', 'accountBalance': 449.6, 'requestId': 1762657992, 'openMs': 588, 'currency': 'USD'}
+2025-11-09 09:13:13,718 - __main__ - INFO - Current balance: 449.6
+2025-11-09 09:13:15,962 - pyquotex.ws.client - INFO - Websocket connection closed.
+2025-11-09 09:49:47,068 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:49:59,906 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:50:02,920 - __main__ - INFO - Establishing connection...
+2025-11-09 09:50:02,921 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 09:50:07,805 - websocket - INFO - Websocket connected
+2025-11-09 09:50:07,891 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:50:10,936 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 09:50:10,938 - __main__ - INFO - Getting real-time price for EURJPY_otc.
+2025-11-09 09:50:10,939 - __main__ - INFO - Asset EURJPY_otc is open. Starting real-time price monitoring.
+2025-11-09 09:50:55,876 - websocket - DEBUG - Sending ping
+2025-11-09 09:51:19,887 - websocket - DEBUG - Sending ping
+2025-11-09 09:51:43,893 - websocket - DEBUG - Sending ping
+2025-11-09 09:52:07,909 - websocket - DEBUG - Sending ping
+2025-11-09 09:52:31,922 - websocket - DEBUG - Sending ping
+2025-11-09 09:52:55,939 - websocket - DEBUG - Sending ping
+2025-11-09 09:53:19,939 - websocket - DEBUG - Sending ping
+2025-11-09 09:53:43,956 - websocket - DEBUG - Sending ping
+2025-11-09 09:54:04,048 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:54:58,269 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:55:01,292 - __main__ - INFO - Establishing connection...
+2025-11-09 09:55:01,293 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 09:55:13,005 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:55:12 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=1rPvTg.uk_QXfg.GoaKsmG6N.JUD_7LgHObCwW_.BiM-1762660512676-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba5f4ccd8bba5f-DAC'} -+-+- b'error code: 525'
+2025-11-09 09:55:13,020 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:55:12 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=1rPvTg.uk_QXfg.GoaKsmG6N.JUD_7LgHObCwW_.BiM-1762660512676-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba5f4ccd8bba5f-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 09:55:13,159 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 09:55:13,196 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 09:55:26,444 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:55:26 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=YN5py0NUDYPnDolEDIRzr8EEaC.TcDrziVuQE35AhmI-1762660526314-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba5fa22f65ba53-DAC'} -+-+- b'error code: 525'
+2025-11-09 09:55:26,484 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:55:26 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=YN5py0NUDYPnDolEDIRzr8EEaC.TcDrziVuQE35AhmI-1762660526314-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba5fa22f65ba53-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 09:55:26,484 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 09:55:26,485 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 09:55:28,591 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:55:28 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=TEmUB59TyKZe_1G4MLAFFJ22YrhnXYzcu2HWVidveP0-1762660528956-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba5fb29d02f257-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 09:55:28,592 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 09:55:28,592 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 09:55:30,121 - websocket - INFO - Websocket connected
+2025-11-09 09:55:30,187 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:55:33,229 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 09:55:33,230 - __main__ - INFO - Fetching last 50 candles for GBPUSD_otc at period 60s (offset=3000).
+2025-11-09 09:55:34,137 - websocket - INFO - Websocket connected
+2025-11-09 09:55:34,138 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:55:35,246 - __main__ - INFO - Getting candles for GBPUSD_otc with period of 60s.
+2025-11-09 09:55:35,802 - __main__ - INFO - Retrieved 199 candles.
+2025-11-09 09:55:38,115 - pyquotex.ws.client - INFO - Websocket connection closed.
+2025-11-09 09:57:25,111 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 09:57:28,130 - __main__ - INFO - Establishing connection...
+2025-11-09 09:57:28,131 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 09:57:39,491 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:57:39 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=7nK2oVkQh_XxhdAdVLIGOIEivyEdY2rt8WiM5G7rsM4-1762660659452-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba62e24d3671f4-DAC'} -+-+- b'error code: 525'
+2025-11-09 09:57:39,507 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:57:39 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=7nK2oVkQh_XxhdAdVLIGOIEivyEdY2rt8WiM5G7rsM4-1762660659452-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba62e24d3671f4-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 09:57:39,568 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 09:57:39,568 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 09:57:45,828 - websocket - INFO - Websocket connected
+2025-11-09 09:57:45,890 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:57:52,463 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:57:52 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=r2FvTAwGuiTGD5HSOUe9UiXS33yxSppxJckFEEV2.Ak-1762660672829-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba6335af13e87e-DAC'} -+-+- b'error code: 525'
+2025-11-09 09:57:52,465 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 03:57:52 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=r2FvTAwGuiTGD5HSOUe9UiXS33yxSppxJckFEEV2.Ak-1762660672829-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba6335af13e87e-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 09:57:52,466 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 09:57:52,468 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 09:57:57,962 - websocket - INFO - Websocket connected
+2025-11-09 09:57:57,964 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 09:58:02,348 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 09:58:02,349 - __main__ - INFO - Getting candles for GBPUSD_otc with period of 60s.
+2025-11-09 09:58:03,015 - __main__ - INFO - Retrieved 199 candles.
+2025-11-09 09:58:05,468 - pyquotex.ws.client - INFO - Websocket connection closed.
+2025-11-09 10:00:24,332 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 10:00:27,348 - __main__ - INFO - Establishing connection...
+2025-11-09 10:00:27,349 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 10:00:39,159 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:00:38 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=wK5oE6fbK2UfwYvqRhuSUt8fTExVlgXcWil0ifrZcr0-1762660838792-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba6742eac5ba55-DAC'} -+-+- b'error code: 525'
+2025-11-09 10:00:39,175 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:00:38 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=wK5oE6fbK2UfwYvqRhuSUt8fTExVlgXcWil0ifrZcr0-1762660838792-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba6742eac5ba55-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 10:00:39,234 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 10:00:39,237 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 10:00:52,510 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:00:52 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=eR8F99LTufbnKzUDXkrswt39PfoyqmN.jeX4kBSn5e8-1762660852485-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba6798dc5c5942-DAC'} -+-+- b'error code: 525'
+2025-11-09 10:00:52,534 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:00:52 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=eR8F99LTufbnKzUDXkrswt39PfoyqmN.jeX4kBSn5e8-1762660852485-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba6798dc5c5942-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 10:00:52,536 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 10:00:52,537 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 10:00:54,628 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:00:55 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=4edm70lt09OMYsU69xeckA6I4RfFSQynkFLFO2Z_jNM-1762660855010-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba67a81fddded3-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 10:00:54,629 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 10:00:54,629 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 10:01:01,049 - websocket - INFO - Websocket connected
+2025-11-09 10:01:01,097 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 10:01:05,383 - pyquotex.ws.client - ERROR - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:01:05 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=28Uiktt0AlBRe7HmaEDBA08JWNlIam0OfpJlqpAYBqY-1762660865810-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba67ebec680645-DAC'} -+-+- b'error code: 525'
+2025-11-09 10:01:05,385 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:01:05 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=28Uiktt0AlBRe7HmaEDBA08JWNlIam0OfpJlqpAYBqY-1762660865810-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba67ebec680645-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 10:01:05,387 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 10:01:05,388 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 10:01:08,171 - websocket - INFO - Handshake status 525 None -+-+- {'date': 'Sun, 09 Nov 2025 04:01:08 GMT', 'content-type': 'text/plain; charset=UTF-8', 'content-length': '15', 'connection': 'keep-alive', 'x-frame-options': 'SAMEORIGIN', 'referrer-policy': 'same-origin', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0', 'expires': 'Thu, 01 Jan 1970 00:00:01 GMT', 'set-cookie': '_cfuvid=sr84t2tO0Vn5_pota7ZuGP8dy3iq4Csg5ec9W9ynWh8-1762660868259-0.0.1.1-604800000; path=/; domain=.qxbroker.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '99ba67fb6dcbba5c-DAC'} -+-+- b'error code: 525' - reconnect
+2025-11-09 10:01:08,173 - websocket - DEBUG - Calling dispatcher reconnect [4 frames in stack]
+2025-11-09 10:01:08,174 - websocket - INFO - reconnect() - retrying in 5 seconds [5 frames in stack]
+2025-11-09 10:01:10,910 - websocket - INFO - Websocket connected
+2025-11-09 10:01:10,912 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 10:01:16,804 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 10:01:16,807 - __main__ - INFO - Getting candles for GBPUSD_otc with period of 60s.
+2025-11-09 10:01:17,361 - __main__ - INFO - Retrieved 199 candles.
+2025-11-09 10:01:19,820 - pyquotex.ws.client - INFO - Websocket connection closed.
+2025-11-09 10:02:37,772 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 10:02:40,794 - __main__ - INFO - Establishing connection...
+2025-11-09 10:02:40,795 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 10:02:42,980 - websocket - INFO - Websocket connected
+2025-11-09 10:02:43,043 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 10:02:46,096 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 10:02:46,097 - __main__ - INFO - Fetching last 1000 candles for EURUSD_otc at period 60s (offset=60000).
+2025-11-09 10:02:48,112 - __main__ - INFO - Getting candles for EURUSD_otc with period of 60s.
+2025-11-09 10:02:48,661 - __main__ - INFO - Retrieved 199 candles.
+2025-11-09 10:02:50,955 - pyquotex.ws.client - INFO - Websocket connection closed.
+2025-11-09 10:04:10,990 - __main__ - INFO - Quotex client initialized successfully.
+2025-11-09 10:04:14,008 - __main__ - INFO - Establishing connection...
+2025-11-09 10:04:14,009 - __main__ - INFO - Attempting to connect to Quotex API...
+2025-11-09 10:04:16,341 - websocket - INFO - Websocket connected
+2025-11-09 10:04:16,421 - pyquotex.ws.client - INFO - Websocket client connected.
+2025-11-09 10:04:19,478 - __main__ - INFO - Connected successfully: Websocket connected successfully!!!
+2025-11-09 10:04:19,479 - __main__ - INFO - Fetching last 199 candles for USDBDT_otc at period 60s (offset=11940).
+2025-11-09 10:04:21,482 - __main__ - INFO - Getting candles for USDBDT_otc with period of 60s.
+2025-11-09 10:04:22,042 - __main__ - INFO - Retrieved 199 candles.
+2025-11-09 10:04:24,081 - pyquotex.ws.client - INFO - Websocket connection closed.
